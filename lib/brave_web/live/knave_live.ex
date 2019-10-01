@@ -7,6 +7,7 @@ defmodule BraveWeb.KnaveLive do
     <%= for knave <- @knaves do %>
     <ul>
       <li><h2><strong>Name: </strong><%= knave.name %></h2></li>
+      <li><strong>HP: </strong><%= knave.hp %></strong></li>
       <li><strong>Str: </strong><%= knave.str.defense %> / +<%= knave.str.bonus %></li>
       <li><strong>Dex: </strong><%= knave.dex.defense %> / +<%= knave.dex.bonus %></li>
       <li><strong>Con: </strong><%= knave.con.defense %> / +<%= knave.con.bonus %></li>

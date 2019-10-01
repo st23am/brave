@@ -10,11 +10,17 @@ defmodule Brave.CharacterGenerator do
     |> roll_attributes
     |> determine_traits
     |> generate_name
+    |> generate_hit_points
   end
 
   def generate_name(character) do
     character
     |> Map.put(:name, Brave.Names.random())
+  end
+
+  def generate_hit_points(character) do
+    character
+    |> Map.put(:hp, Enum.random(1..8))
   end
 
   def roll_attributes(%Character{} = character) do

@@ -17,9 +17,8 @@ defmodule BraveWeb.Router do
 
   scope "/", BraveWeb do
     pipe_through :browser
-
+    live "/", KnaveLive
     live "/knave", KnaveLive
-    get "/", PageController, :index
   end
 
   # Other scopes may use custom stacks.

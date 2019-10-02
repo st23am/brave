@@ -1,0 +1,64 @@
+<button phx-click="generate"> Generate Random Knave </button>
+<%= for knave <- @knaves do %>
+<hr />
+<section class="stats">
+<h2><strong class="heading">Name: </strong><%= knave.name %></h2>
+<ul>
+    <li>
+    <strong class="game-attr alt-heading">H.P.</strong>
+    <span class="attr-box"><%= knave.hp %> </span>
+    </li>
+    <li>
+    <strong class="game-attr alt-heading">Armor:  </strong>
+    <span class="attr-box"><%= knave.armor.defense %>  / + <%= knave.armor.bonus %></span>
+    </li>
+    <li>
+    <strong class="game-attr">Str: </strong>
+    <span class="attr-box"><%= knave.str.defense %> / +<%= knave.str.bonus %></span>
+    </li>
+    <li>
+    <strong class="game-attr">Dex: </strong>
+    <span class="attr-box"><%= knave.dex.defense %> / +<%= knave.dex.bonus %></span>
+    </li>
+    <li>
+    <strong class="game-attr">Con: </strong>
+    <span class="attr-box"><%= knave.con.defense %> / +<%= knave.con.bonus %></span>
+    </li>
+    <li>
+    <strong class="game-attr">Int: </strong>
+    <span class="attr-box"><%= knave.int.defense %> / +<%= knave.int.bonus %></span>
+    </li>
+    <li>
+    <strong class="game-attr">Wis: </strong>
+    <span class="attr-box"><%= knave.wis.defense %> / +<%= knave.wis.bonus %></span>
+    </li>
+    <li>
+    <strong class="game-attr">Cha: </strong>
+    <span class="attr-box"><%= knave.cha.defense %> / +<%= knave.wis.bonus %></span>
+    </li>
+</ul>
+</section>
+<section class="stats">
+    <h2><strong class="heading"> Traits</strong></h2>
+<ul>
+    <li><strong>Background: </strong> <%= knave.traits.background %></li>
+    <li><strong>Vice: </strong> <%= knave.traits.vice %></li>
+    <li><strong>Virtue: </strong><%= knave.traits.virtue %></li>
+    <li><strong>Misfortunes: </strong><%= knave.traits.misfortunes %></li>
+    <li><strong>Skin: </strong><%= knave.traits.skin %></li>
+    <li><strong>Hair: </strong><%= knave.traits.hair %></li>
+    <li><strong>Clothing: </strong><%= knave.traits.clothing %></li>
+    <li><strong>Face: </strong><%= knave.traits.face %></li>
+    <li><strong>Speech: </strong><%= knave.traits.speech %></li>
+</ul>
+</section>
+<section class="stats">
+<h2> <strong class="heading">Inventory</strong></h2>
+<ul>
+    <%= for item <- items_to_display(knave.inventory) do %>
+    <li> <%= display_item(item) %> </li>
+    <% end %>
+</ul>
+</section>
+<hr />
+<% end %>

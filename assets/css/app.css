@@ -32,6 +32,13 @@ li {
   top: -3rem;
   left: 4rem;
 }
+.alt-heading {
+    font-family: 'Sebaldus-Gotisch';
+    font-weight:normal;
+    color: #fff;
+    background: #000;
+}
+
 .heading {
     font-family: 'Sebaldus-Gotisch';
     font-weight:normal;

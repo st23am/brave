@@ -7,34 +7,90 @@
         font-style: normal;
         font-weight: normal;
         src: local('Sebaldus-Gotisch'), url('/fonts/Sebaldus-Gotisch.woff') format('woff');
+}
+@media print {
+    .no-print {
+        display: none;
     }
-
+    body {
+        transform: scale(70%);
+    }
+    article {
+      page-break-after: always;
+    }
+}
+.container-full {
+  max-width: 11in;
+}
 .logo {
     font-family: 'Sebaldus-Gotisch';
     font-weight:normal;
-    font-size:60px;
+    font-size: 6rem;
     color: #000;
 }
 li {
     list-style: none;
     padding-bottom: 3rem;
 }
-.attr-box {
-    border: 0.2rem solid #333;
-    padding: 1rem 5rem 1rem 5rem;
-}
 .game-attr {
-  padding: 2px;
+  padding: 0.5rem 2rem 0.5rem;
   background: #000;
   color: #fff;
-  font-size: 20px;
+  display: inline-block;
+  margin-top: 1rem;
+}
+.padding-left-zero {
+    padding-left: 0;
+}
+.attr-box {
+    border: 0.2rem solid #333;
+    background-color: #fff;
+    position: relative;
+    display: flex;
+    height: 6rem;
+}
+.inner-box--left {
+    display: flex;
+    flex-grow: 1; align-items: flex-end; justify-content: center; padding: 0.5rem;
+}
+.inner-box--right {
+    display: flex;
+    flex-grow: 1;
+    align-items: flex-end;
+    justify-content: center;
+    background: #eee;
+    padding: 0.5rem;
+}
+.background-dark {
+    background-color: #000;
+}
+.label--top-left{
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.label--top-right{
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.label--bottom {
+   position: absolute;
+   left: 0;
+   bottom: 0;
+   color: #666;
+}
+.portrait { 
+  height: 23rem;
+  border: 0.2rem solid #333;
   position: relative;
-  top: -3rem;
-  left: 4rem;
+  background-color: #fff;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
 }
 .alt-heading {
     font-family: 'Sebaldus-Gotisch';
-    font-weight:normal;
+    font-weight: normal;
     color: #fff;
     background: #000;
 }
@@ -43,4 +99,7 @@ li {
     font-family: 'Sebaldus-Gotisch';
     font-weight:normal;
     color: #000;
+}
+.traits {
+    padding-left: 2rem;
 }

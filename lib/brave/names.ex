@@ -1,5 +1,4 @@
 defmodule Brave.Names do
-
   @names [
     "Aaberg",
     "Aalst",
@@ -21987,7 +21986,7 @@ defmodule Brave.Names do
     "Zwick",
     "Zwiebel",
     "Zysk"
-]
+  ]
 
   def random do
     Enum.random(@names)

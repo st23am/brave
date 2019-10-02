@@ -1,6 +1,6 @@
 defmodule BraveWeb.Router do
   use BraveWeb, :router
-  import  Phoenix.LiveView.Router
+  import Phoenix.LiveView.Router
 
   pipeline :browser do
     plug :accepts, ["html"]

@@ -9,8 +9,10 @@ defmodule BraveWeb.KnaveLive do
 
   @spec handle_event(<<_::64>>, any, Phoenix.LiveView.Socket.t()) :: {:noreply, any}
   def handle_event("generate", _, socket = %{assigns: %{knaves: knaves}}) do
-    knave = Brave.CharacterGenerator.random()
-    |> IO.inspect
+    knave =
+      Brave.CharacterGenerator.random()
+      |> IO.inspect()
+
     {:noreply, assign(socket, knaves: [knave] ++ knaves)}
   end
 end

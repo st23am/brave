@@ -13,7 +13,7 @@ defmodule Brave.Equiptment do
   def random_helmets_and_shields do
     roll = Enum.random(1..20)
     cond do
-      roll in 1..13 ->  %{name: "None",   defense: 0, bonus: 0, slots: 0, quality: 7}
+      roll in 1..13 ->  %{name: "None",   defense: 0, bonus: 0, slots: 0, quality: 0}
       roll in 14..16 -> %{name: "Helmet", defense: 0, bonus: 1, slots: 1, quality: 1}
       roll in 17..19 -> %{name: "Shield", defense: 0, bonus: 1, slots: 1, quality: 1}
       roll in [20] ->   [%{name: "Helmet", defense: 0, bonus: 1, slots: 1, quality: 1},
@@ -71,6 +71,33 @@ defmodule Brave.Equiptment do
       18 => "Instrument",
       19 => "Quill and Ink",
       20 => "Small bell"
+    }
+    |> Map.get(roll)
+  end
+
+  def random_dungeoneering_gear do
+    roll = Enum.random(1..20)
+    %{
+      1 => "Rope 50ft",
+      2 => "Pulleys",
+      3 => "Candles, 5",
+      4 => "Chain, 10ft",
+      5 => "Chalk 10",
+      6 => "Crowbar",
+      7 => "Tinderbox",
+      8 => "Grappling hook",
+      9 => "Hammer",
+      10 => "Waterskin",
+      11 => "Lantern",
+      12 => "Lamp oil",
+      13 => "Padlock",
+      14 => "Manacles",
+      15 => "Mirror",
+      16 => "Pole, 10ft",
+      17 => "Sack",
+      18 => "Tent",
+      19 => "Spikes, 5",
+      20 => "Torches, 5"
     }
     |> Map.get(roll)
   end

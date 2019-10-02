@@ -29,7 +29,7 @@ defmodule BraveWeb.KnaveLive do
     </ul>
     <h4> <strong>Inventory</strong></h4>
     <ul>
-      <%= for item <- knave.inventory do %>
+      <%= for item <- items_to_display(knave.inventory) do %>
        <li> <%= display_item(item) %> </li>
       <% end %>
     </ul>
@@ -38,6 +38,19 @@ defmodule BraveWeb.KnaveLive do
     """
   end
 
+
+
+  def items_to_display(inventory) do
+    inventory
+    |> Enum.reject(fn(item) ->
+        if is_map(item) do
+          if item.name == "None" || item.name == "No Armor" do
+            true
+          end
+        end
+    end)
+  end
+  def display_item(%{name: "None", quality: _quality}), do: ""
   def display_item(%{name: name, quality: quality}), do: "name: #{name} quality: #{quality}"
   def display_item(item), do: item
   def mount(_session, socket) do

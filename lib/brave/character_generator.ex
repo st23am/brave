@@ -21,6 +21,8 @@ defmodule Brave.CharacterGenerator do
     |> Enum.concat([Equiptment.random_helmets_and_shields])
     |> Enum.concat([Equiptment.random_general_gear])
     |> Enum.concat([Equiptment.random_general_gear_two])
+    |> Enum.concat([Equiptment.random_dungeoneering_gear])
+    |> Enum.concat([Equiptment.random_dungeoneering_gear])
     |> List.flatten
 
     gear

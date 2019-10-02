@@ -1,5 +1,6 @@
 defmodule Brave.CharacterGenerator do
   alias Brave.Character
+  alias Brave.Equiptment
 
   def new do
     random()
@@ -11,7 +12,31 @@ defmodule Brave.CharacterGenerator do
     |> determine_traits
     |> generate_name
     |> generate_hit_points
+    |> add_inventory
   end
+
+  def add_inventory(character) do
+    gear = ["2 days of rations"]
+    |> Enum.concat([Equiptment.random_armor])
+    |> Enum.concat([Equiptment.random_helmets_and_shields])
+    |> Enum.concat([Equiptment.random_general_gear])
+    |> Enum.concat([Equiptment.random_general_gear_two])
+    |> List.flatten
+
+    gear
+    |> Enum.reduce(character, fn(item, char) -> apply_armor(item, char) end)
+    |> Map.put(:inventory, gear)
+  end
+
+  def apply_armor(%{name: "No Armor", bonus: _value}, character) do
+     character
+     |> Map.put(:armor, %{defense: 11, bonus: 1})
+  end
+  def apply_armor(%{name: _name, bonus: value}, character) do
+    Map.put(character, :armor, %{defense: 10 + character.armor.bonus + value,
+                                 bonus: character.armor.bonus + value})
+  end
+  def apply_armor(_item, character), do: character
 
   def generate_name(character) do
     character

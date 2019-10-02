@@ -2,4 +2,38 @@
 
 @import "./phoenix.css";
 @import "../../deps/phoenix_live_view/assets/css/live_view.css";
+@font-face {
+        font-family: 'Sebaldus-Gotisch';
+        font-style: normal;
+        font-weight: normal;
+        src: local('Sebaldus-Gotisch'), url('/fonts/Sebaldus-Gotisch.woff') format('woff');
+    }
 
+.logo {
+    font-family: 'Sebaldus-Gotisch';
+    font-weight:normal;
+    font-size:60px;
+    color: #000;
+}
+li {
+    list-style: none;
+    padding-bottom: 3rem;
+}
+.attr-box {
+    border: 0.2rem solid #333;
+    padding: 1rem 5rem 1rem 5rem;
+}
+.game-attr {
+  padding: 2px;
+  background: #000;
+  color: #fff;
+  font-size: 20px;
+  position: relative;
+  top: -3rem;
+  left: 4rem;
+}
+.heading {
+    font-family: 'Sebaldus-Gotisch';
+    font-weight:normal;
+    color: #000;
+}

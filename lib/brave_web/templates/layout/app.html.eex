@@ -16,7 +16,7 @@
           </ul>
         </nav>
         <a href="/" class="phx-logo">
-          <h1>Bravery & Knavery</h1>
+          <h1 class="logo">Bravery & Knavery</h1>
         </a>
       </section>
     </header>

@@ -6,17 +6,46 @@ defmodule BraveWeb.KnaveLive do
     <button phx-click="generate"> Generate Random Knave </button>
     <%= for knave <- @knaves do %>
     <hr />
-    <h3><strong>Name: </strong><%= knave.name %></h3>
+    <section class="stats">
+    <h2><strong class="heading">Name: </strong><%= knave.name %></h2>
     <ul>
-      <li><strong>HP:  </strong><%= knave.hp %></li>
-      <li><strong>AC:  </strong><%= knave.armor.defense %>  / + <%= knave.armor.bonus %></li>
-      <li><strong>Str: </strong><%= knave.str.defense %> / +<%= knave.str.bonus %></li>
-      <li><strong>Dex: </strong><%= knave.dex.defense %> / +<%= knave.dex.bonus %></li>
-      <li><strong>Con: </strong><%= knave.con.defense %> / +<%= knave.con.bonus %></li>
-      <li><strong>Int: </strong><%= knave.int.defense %> / +<%= knave.int.bonus %></li>
-      <li><strong>Wis: </strong><%= knave.wis.defense %> / +<%= knave.wis.bonus %></li>
-      <li><strong>Cha: </strong><%= knave.cha.defense %> / +<%= knave.wis.bonus %></li>
-
+      <li>
+        <strong class="game-attr">HP</strong>
+        <span class="attr-box"><%= knave.hp %> </span>
+      </li>
+      <li>
+        <strong class="game-attr">AC:  </strong>
+        <span class="attr-box"><%= knave.armor.defense %>  / + <%= knave.armor.bonus %></span>
+      </li>
+      <li>
+        <strong class="game-attr">Str: </strong>
+        <span class="attr-box"><%= knave.str.defense %> / +<%= knave.str.bonus %></span>
+      </li>
+      <li>
+        <strong class="game-attr">Dex: </strong>
+        <span class="attr-box"><%= knave.dex.defense %> / +<%= knave.dex.bonus %></span>
+      </li>
+      <li>
+        <strong class="game-attr">Con: </strong>
+        <span class="attr-box"><%= knave.con.defense %> / +<%= knave.con.bonus %></span>
+      </li>
+      <li>
+        <strong class="game-attr">Int: </strong>
+        <span class="attr-box"><%= knave.int.defense %> / +<%= knave.int.bonus %></span>
+      </li>
+      <li>
+        <strong class="game-attr">Wis: </strong>
+        <span class="attr-box"><%= knave.wis.defense %> / +<%= knave.wis.bonus %></span>
+      </li>
+      <li>
+        <strong class="game-attr">Cha: </strong>
+        <span class="attr-box"><%= knave.cha.defense %> / +<%= knave.wis.bonus %></span>
+      </li>
+    </ul>
+    </section>
+    <section class="stats">
+      <h2><strong class="heading"> Traits</strong></h2>
+    <ul>
       <li><strong>Background: </strong> <%= knave.traits.background %></li>
       <li><strong>Vice: </strong> <%= knave.traits.vice %></li>
       <li><strong>Virtue: </strong><%= knave.traits.virtue %></li>
@@ -27,12 +56,15 @@ defmodule BraveWeb.KnaveLive do
       <li><strong>Face: </strong><%= knave.traits.face %></li>
       <li><strong>Speech: </strong><%= knave.traits.speech %></li>
     </ul>
-    <h4> <strong>Inventory</strong></h4>
+    </section>
+    <section class="stats">
+    <h2> <strong class="heading">Inventory</strong></h2>
     <ul>
       <%= for item <- items_to_display(knave.inventory) do %>
        <li> <%= display_item(item) %> </li>
       <% end %>
     </ul>
+    </section>
     <hr />
     <% end %>
     """

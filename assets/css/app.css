@@ -18,6 +18,10 @@
     article {
       page-break-after: always;
     }
+
+}
+@media print and (color) {
+    *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
 }
 .container-full {
   max-width: 11in;
@@ -30,7 +34,7 @@
 }
 li {
     list-style: none;
-    padding-bottom: 3rem;
+    padding-bottom: 1rem;
 }
 .game-attr {
   padding: 0.5rem 2rem 0.5rem;
@@ -41,6 +45,9 @@ li {
 }
 .padding-left-zero {
     padding-left: 0;
+}
+.ruled--dotted {
+    border-bottom: dotted #666;
 }
 .attr-box {
     border: 0.2rem solid #333;
@@ -68,11 +75,15 @@ li {
   position: absolute;
   left: 0;
   top: 0;
+  padding-left: 1rem;
+  color: #666;
 }
 .label--top-right{
   position: absolute;
+  padding-right: 1rem;
   right: 0;
   top: 0;
+  color: #666;
 }
 .label--bottom {
    position: absolute;
@@ -80,7 +91,14 @@ li {
    bottom: 0;
    color: #666;
 }
-.portrait { 
+.bordered--line {
+  border: 0.2rem solid #333;
+  padding: 1rem 1rem 2rem;
+}
+.empty-line {
+  padding-top: 2.5rem;
+}
+.boxed {
   height: 23rem;
   border: 0.2rem solid #333;
   position: relative;
@@ -93,6 +111,7 @@ li {
     font-weight: normal;
     color: #fff;
     background: #000;
+    padding-left: 1em;
 }
 
 .heading {

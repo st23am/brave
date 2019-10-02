@@ -1,12 +1,13 @@
 <button phx-click="generate" class="no-print"> Generate Random Knave </button>
 
 <%= for knave <- @knaves do %>
+<hr class="no-print"/>
   <article class="container--full knave-sheet">
     <section class="row">
       <div class="column stats-column">
         <section class="row name-section">
           <div class="column">
-            <h2 class="alt-heading">Knave</h1>
+            <h1 class="alt-heading">Knave</h1>
           </div>
           <div class="column">
             <h2><strong class="heading">Name: </strong><%= knave.name %></h2>
@@ -14,7 +15,7 @@
         </section>
         <section class="row">
           <div class="column background-dark">
-            <div class="portrait">
+            <div class="boxed">
               <span class="label--bottom">Portrait</span>
             </div>
           </div>
@@ -23,11 +24,11 @@
               <strong class="game-attr alt-heading padding-left-zero">H.P.</strong>
               <div class="attr-box">
                 <div class="inner-box--left">
-                  <span class="label--top-left">current</span>
+                  <span class="label--top-left">Current</span>
                   <%= knave.hp %>
                 </div>
                 <div class="inner-box--right">
-                  <span class="label--top-right">max</span>
+                  <span class="label--top-right">Max</span>
                 </div>
               </div>
             </div>
@@ -35,9 +36,11 @@
               <strong class="game-attr alt-heading padding-left-zero">Armor:  </strong>
               <span class="attr-box">
                 <div class="inner-box--left">
+                  <span class="label--top-left">Defense</span>
                   <%= knave.armor.defense %>
                 </div>
                 <div class="inner-box--right">
+                  <span class="label--top-right">Bonus</span>
                   + <%= knave.armor.bonus %>
                 </div>
               </span>
@@ -49,70 +52,136 @@
             <strong class="game-attr">Str: </strong>
             <span class="attr-box">
                 <div class="inner-box--left">
+                    <span class="label--top-left">Defense</span>
                     <%= knave.str.defense %>
                     </div>
                 <div class="inner-box--right">
-                +<%= knave.str.bonus %>
+                  <span class="label--top-right">Bonus</span>
+                  +<%= knave.str.bonus %>
                 </div>
             </span>
           </div>
           <div>
             <strong class="game-attr">Dex: </strong>
-            <span class="attr-box"><%= knave.dex.defense %> / +<%= knave.dex.bonus %></span>
+            <span class="attr-box">
+              <div class="inner-box--left">
+                <span class="label--top-left">Defense</span>
+                <%= knave.dex.defense %>
+              </div>
+              <div class="inner-box--right">
+                <span class="label--top-right">Bonus</span>
+                +<%= knave.dex.bonus %>
+              </div>
+            </span>
           </div>
           <div>
             <strong class="game-attr">Con: </strong>
-            <span class="attr-box"><%= knave.con.defense %> / +<%= knave.con.bonus %></span>
+            <span class="attr-box">
+              <div class="inner-box--left">
+                <span class="label--top-left">Defense</span>
+                <%= knave.con.defense %>
+              </div>
+              <div class="inner-box--right">
+                <span class="label--top-right">Bonus</span>
+                +<%= knave.con.bonus %>
+              </div>
+            </span>
           </div>
           <div>
             <strong class="game-attr">Int: </strong>
-            <span class="attr-box"><%= knave.int.defense %> / +<%= knave.int.bonus %></span>
+            <span class="attr-box">
+              <div class="inner-box--left">
+                <span class="label--top-left">Defense</span>
+                <%= knave.int.defense %>
+              </div>
+              <div class="inner-box--right">
+                <span class="label--top-right">Bonus</span>
+                +<%= knave.int.bonus %>
+              </div>
+            </span>
           </div>
           <div>
             <strong class="game-attr">Wis: </strong>
-            <span class="attr-box"><%= knave.wis.defense %> / +<%= knave.wis.bonus %></span>
+            <span class="attr-box">
+              <div class="inner-box--left">
+                <span class="label--top-left">Defense</span>
+                <%= knave.wis.defense %>
+              </div>
+              <div class="inner-box--right">
+                <span class="label--top-right">Bonus</span>
+                +<%= knave.wis.bonus %>
+              </div>
+            </span>
           </div>
           <div>
             <strong class="game-attr">Cha: </strong>
-            <span class="attr-box"><%= knave.cha.defense %> / +<%= knave.wis.bonus %></span>
+            <span class="attr-box">
+              <div class="inner-box--left">
+                <span class="label--top-left">Defense</span>
+                <%= knave.cha.defense %>
+              </div>
+              <div class="inner-box--right">
+                <span class="label--top-right">Bonus</span>
+                +<%= knave.wis.bonus %>
+              </div>
+            </span>
           </div>
         </section>
       </div>
 
       <div class="column traits-column">
-        <div class="traits">
+        <div class="traits bordered--line">
           <h2><strong class="heading"> Traits</strong></h2>
             <ul>
-              <li><strong>Background: </strong> <%= knave.traits.background %></li>
-              <li><strong>Vice: </strong> <%= knave.traits.vice %></li>
-              <li><strong>Virtue: </strong><%= knave.traits.virtue %></li>
-              <li><strong>Misfortunes: </strong><%= knave.traits.misfortunes %></li>
-              <li><strong>Skin: </strong><%= knave.traits.skin %></li>
-              <li><strong>Hair: </strong><%= knave.traits.hair %></li>
-              <li><strong>Clothing: </strong><%= knave.traits.clothing %></li>
-              <li><strong>Face: </strong><%= knave.traits.face %></li>
-              <li><strong>Speech: </strong><%= knave.traits.speech %></li>
+              <li class="ruled--dotted"><strong>Background: </strong> <%= knave.traits.background %></li>
+              <li class="ruled--dotted"><strong>Vice: </strong> <%= knave.traits.vice %></li>
+              <li class="ruled--dotted"><strong>Virtue: </strong><%= knave.traits.virtue %></li>
+              <li class="ruled--dotted"><strong>Misfortunes: </strong><%= knave.traits.misfortunes %></li>
+              <li class="ruled--dotted"><strong>Skin: </strong><%= knave.traits.skin %></li>
+              <li class="ruled--dotted"><strong>Hair: </strong><%= knave.traits.hair %></li>
+              <li class="ruled--dotted"><strong>Clothing: </strong><%= knave.traits.clothing %></li>
+              <li class="ruled--dotted"><strong>Face: </strong><%= knave.traits.face %></li>
+              <li class="ruled--dotted"><strong>Speech: </strong><%= knave.traits.speech %></li>
             </ul>
         </div>
-        <div class="notes">
+        <div class="notes bordered--line">
           <h2><strong class="heading"> Notes</strong></h2>
-          <div class="portrait">
-          </div>
+            <ul>
+              <li class="ruled--dotted empty-line"></li>
+              <li class="ruled--dotted empty-line"></li>
+              <li class="ruled--dotted empty-line"></li>
+              <li class="ruled--dotted empty-line"></li>
+              <li class="ruled--dotted empty-line"></li>
+              <li class="ruled--dotted empty-line"></li>
+              <li class="ruled--dotted empty-line"></li>
+            </ul>
         </div>
       </div>
 
 
       </div>
       <div class="column inventory-column">
-        <section class="inventory">
+        <section class="inventory bordered--line">
             <h2> <strong class="heading">Inventory</strong></h2>
             <ul>
               <%= for item <- items_to_display(knave.inventory) do %>
-                <li> <%= display_item(item) %> </li>
+                <li class="ruled--dotted"> <%= display_item(item) %> </li>
               <% end %>
+              <li class="ruled--dotted empty-line"></li>
+              <li class="ruled--dotted empty-line"></li>
+              <li class="ruled--dotted empty-line"></li>
+              <li class="ruled--dotted empty-line"></li>
+              <li class="ruled--dotted empty-line"></li>
+              <li class="ruled--dotted empty-line"></li>
+              <li class="ruled--dotted empty-line"></li>
+              <li class="ruled--dotted empty-line"></li>
+              <li class="ruled--dotted empty-line"></li>
+              <li class="ruled--dotted empty-line"></li>
+              <li class="ruled--dotted empty-line"></li>
             </ul>
         </section>
       </div>
     </section>
   </article>
+  <hr class="no-print"/>
 <% end %>

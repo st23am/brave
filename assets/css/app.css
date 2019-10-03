@@ -9,6 +9,7 @@
         src: local('Sebaldus-Gotisch'), url('/fonts/Sebaldus-Gotisch.woff') format('woff');
 }
 @media print {
+    @page {size: landscape}
     .no-print {
         display: none;
     }
@@ -18,7 +19,7 @@
     article {
       page-break-after: always;
     }
-
+    *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
 }
 @media print and (color) {
     *{-webkit-print-color-adjust:exact;print-color-adjust:exact}

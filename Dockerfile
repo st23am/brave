@@ -1,4 +1,4 @@
-# FROM elixir:1.9.0-alpine as build
+FROM elixir:1.9.0-alpine as build
 
 # install build dependencies
 RUN apk add --update git build-base nodejs yarn python
@@ -41,7 +41,7 @@ RUN apk add --update bash openssl
 RUN mkdir /app
 WORKDIR /app
 
-COPY --from=build /app/_build/prod/rel/my_app ./
+COPY --from=build /app/_build/prod/rel/brave ./
 RUN chown -R nobody: /app
 USER nobody
 

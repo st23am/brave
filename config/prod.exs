@@ -10,11 +10,26 @@ use Mix.Config
 # which you should run after static files are built and
 # before starting your production server.
 config :brave, BraveWeb.Endpoint,
-  url: [host: "example.com", port: 80],
-  cache_static_manifest: "priv/static/cache_manifest.json"
+  load_from_system_env: true,
+  http: [port: {:system, "PORT"}],
+  server: true,
+  secret_key_base: "${SECRET_KEY_BASE}",
+  live_view: [
+    signing_salt: "3FylphsIug+TWUd+g5b3MGm5OX+Bi2j+"
+  ],
+  url: [host: "www.braveryandknavery.com", port: 443],
+  cache_static_manifest: "priv/static/cache_manifest.json",
+  pubsub: [name: Brave.PubSub, adapter: Phoenix.PubSub.PG2]
 
 # Do not print debug messages in production
 config :logger, level: :info
+
+config :brave, Brave.Repo,
+  adapter: Ecto.Adapters.Postgres,
+  url: "${DATABASE_URL}",
+  database: "",
+  ssl: true,
+  pool_size: 1
 
 # ## SSL Support
 #
@@ -52,4 +67,4 @@ config :logger, level: :info
 
 # Finally import the config/prod.secret.exs which loads secrets
 # and configuration from environment variables.
-import_config "prod.secret.exs"
+# import_config "prod.secret.exs"

@@ -5,7 +5,7 @@ defmodule Brave.MixProject do
     [
       app: :brave,
       version: "0.1.0",
-      elixir: "~> 1.5",
+      elixir: "~> 1.9",
       elixirc_paths: elixirc_paths(Mix.env()),
       compilers: [:phoenix, :gettext] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
@@ -37,6 +37,7 @@ defmodule Brave.MixProject do
       {:phoenix_pubsub, "~> 1.1"},
       {:phoenix_live_view, "~> 0.3"},
       {:phoenix_ecto, "~> 4.0"},
+      {:distillery,  "~> 2.1", runtime: false},
       {:ecto_sql, "~> 3.1"},
       {:postgrex, ">= 0.0.0"},
       {:phoenix_html, "~> 2.11"},

@@ -19,6 +19,7 @@ defmodule BraveWeb.Router do
     pipe_through :browser
     live "/", KnaveLive
     live "/knave", KnaveLive
+    get("/about", PageController, :about)
   end
 
   # Other scopes may use custom stacks.

@@ -17,8 +17,9 @@ config :brave, BraveWeb.Endpoint,
   live_view: [
     signing_salt: "3FylphsIug+TWUd+g5b3MGm5OX+Bi2j+"
   ],
-  url: [host: "www.braveryandknavery.com", port: 443],
+  url: [host: "braveryandknavery.com", port: 443],
   cache_static_manifest: "priv/static/cache_manifest.json",
+  force_ssl: [hsts: true],
   pubsub: [name: Brave.PubSub, adapter: Phoenix.PubSub.PG2]
 
 # Do not print debug messages in production

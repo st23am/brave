@@ -1,15 +1,23 @@
 <section class="row">
   <article class="column column-50 column-offset-25">
     <h1 class="heading">About</h1>
-    <p> KNAVE is a rules toolkit by the creator of Maze Rats and The Alchemist's Repose Beast Ben Milton of QuestingBeast fame. It allows for running old school fantasy RPGs without classes </p>
+    <p><strong class="heading"> Bravery & Knavery</strong> Is a character generator for Knave the RPG. In the future I hope to have other tools that aid in the running of Knave along side rules taken from B/X hence the Brave (Knave + B/X) part of Bravery & Knavery</p>
+    <h1 class="heading"> What is Knave?</h1>
+    <p> KNAVE is a rules toolkit by the creator of Maze Rats and The Alchemist's Repose Ben Milton of QuestingBeast fame. It allows for running old school fantasy RPGs without classes </p>
 
     <iframe width="560" height="315" src="https://www.youtube.com/embed/Mtf3vDycfmE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </article>
+</section>
+<hr/>
 
+<section class="row">
+  <article class="column column-50 column-offset-25">
+    <h1 class="heading"> Purchase </h1>
     <p>You can purchase Knave at:
-      <span><a href="https://questingbeast.itch.io/knave">itch.io</a></span>
-      <span><a href="https://www.drivethrurpg.com/product/250888/Knave">DriveThruRpg</a></span>
-      <span>Like and Subscribe to Questing Beast </span>
-      <a href="https://www.youtube.com/questingbeast"> Questing Beast</a>
+      <ul>
+        <li><a href="https://questingbeast.itch.io/knave">itch.io</a></li>
+        <li><a href="https://www.drivethrurpg.com/product/250888/Knave">DriveThruRpg</a></li>
+      </ul>
     </p>
   </article>
 </section>

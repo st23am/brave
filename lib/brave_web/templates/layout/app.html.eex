@@ -29,8 +29,7 @@
     </div>
     <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
     <footer class="container no-print">
-      <span>"<a href="https://questingbeast.itch.io/knave">Knave</a> is a tabletop rpg" by <a href="http://questingblog.com/">Ben Milton</a> is licensed under Creative Commons Attribution 4.0 International License"</span>
+      <span><a href="https://questingbeast.itch.io/knave">Knave</a> is a tabletop rpg by <a href="http://questingblog.com/">Ben Milton</a>is licensed under Creative Commons Attribution 4.0 International License</span>
     </footer>
-
   </body>
 </html>

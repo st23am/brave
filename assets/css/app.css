@@ -122,3 +122,6 @@ li {
 .traits {
     padding-left: 2rem;
 }
+.container--app {
+    min-height: 60rem;
+}

@@ -17,14 +17,16 @@ defmodule Brave.CharacterGenerator do
 
   def add_inventory(character) do
     gear =
-      ["2 days of rations"]
+      ["2 days worth of Rations"]
       |> Enum.concat([Equiptment.random_armor()])
       |> Enum.concat([Equiptment.random_helmets_and_shields()])
       |> Enum.concat([Equiptment.random_general_gear()])
       |> Enum.concat([Equiptment.random_general_gear_two()])
       |> Enum.concat([Equiptment.random_dungeoneering_gear()])
       |> Enum.concat([Equiptment.random_dungeoneering_gear()])
+      |> Enum.concat([Equiptment.random_weapon()])
       |> List.flatten()
+      |> maybe_add_ammo()
 
     gear
     |> Enum.reduce(character, fn item, char -> apply_armor(item, char) end)
@@ -44,6 +46,23 @@ defmodule Brave.CharacterGenerator do
   end
 
   def apply_armor(_item, character), do: character
+
+  def maybe_add_ammo(gear) do
+    ammo_need =
+      gear
+      |> Enum.filter(&is_map/1)
+      |> Enum.any?(fn %{name: name} ->
+        name in ["Bow", "Crossbow"]
+      end)
+
+    with true <- ammo_need do
+      gear
+      |> Enum.concat(Equiptment.ammo())
+      |> List.flatten()
+    else
+      false -> gear
+    end
+  end
 
   def generate_name(character) do
     character

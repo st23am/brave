@@ -4,7 +4,15 @@ defmodule BraveWeb.CharacterView do
   alias BraveWeb.KnaveLive
 
   def display_item(%{name: "None", quality: _quality}), do: ""
-  def display_item(%{name: name, quality: quality}), do: "name: #{name} quality: #{quality}"
+
+  def display_item(%{name: name, quality: quality, type: "ammo"}),
+    do: "#{name} quality: #{quality}"
+
+  def display_item(%{name: name, type: type, damage: damage, slots: slots, quality: quality})
+      when type in ["one-handed", "two-handed"],
+      do: "#{name} damage: #{damage}, slots: #{slots}, quality: #{quality}"
+
+  def display_item(%{name: name, quality: quality}), do: "#{name} quality: #{quality}"
   def display_item(item), do: item
 
   def items_to_display(inventory) do

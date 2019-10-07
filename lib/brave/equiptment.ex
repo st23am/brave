@@ -31,6 +31,51 @@ defmodule Brave.Equiptment do
     end
   end
 
+  def weapons do
+    [
+      %{
+        name: "Dagger, Cudgel, Sickle, Staff, etc.",
+        damage: "1d6",
+        type: "one-handed",
+        slots: 1,
+        quality: 3,
+        value: 5
+      },
+      %{
+        name: "Spear, Sword, Mace, Axe, Flail, etc.",
+        damage: "1d8",
+        type: "one-handed",
+        slots: 2,
+        quality: 3,
+        value: 10
+      },
+      %{
+        name: "Halberd, War Hammer, Long Sword, Battle Axe, etc.",
+        damage: "1d10",
+        type: "two-handed",
+        slots: 3,
+        quality: 3,
+        value: 20
+      },
+      %{name: "Sling", damage: "1d4", type: "one-handed", slots: 1, quality: 3, value: 5},
+      %{name: "Bow", damage: "1d6", type: "two-handed", slots: 2, quality: 3, value: 15},
+      %{name: "Crossbow", damage: "1d8", type: "two-handed", slots: 3, quality: 3, value: 60}
+    ]
+  end
+
+  def ammo do
+    [
+      %{name: "Arrows/Bolts (20)", damage: nil, type: "ammo", quality: 3, slots: 1, value: 5},
+      %{name: "Quiver (capacity 20)", damage: nil, type: "ammo", quality: 3, slots: 1, value: 10}
+    ]
+  end
+
+  def random_weapon do
+    weapons()
+    |> Enum.shuffle()
+    |> Enum.take(1)
+  end
+
   def random_general_gear do
     roll = Enum.random(1..20)
 

@@ -162,12 +162,18 @@
       </div>
       <div class="column inventory-column">
         <section class="inventory bordered--line">
-            <h2> <strong class="heading">Inventory</strong></h2>
+          <div class="row">
+            <div class="column">
+              <h2> <strong class="heading">Inventory</strong>
+            </div>
+            <div class="column column-50 column-offset-25">
+               <strong class="heading"> Slots: </strong> <small> <%= slots_used(knave) %>/<%= slots_allowed(knave) %></small> </h2>
+            </div>
+          </div>
             <ul>
               <%= for item <- items_to_display(knave.inventory) do %>
                 <li class="ruled--dotted"> <%= display_item(item) %> </li>
               <% end %>
-              <li class="ruled--dotted empty-line"></li>
               <li class="ruled--dotted empty-line"></li>
               <li class="ruled--dotted empty-line"></li>
               <li class="ruled--dotted empty-line"></li>

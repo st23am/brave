@@ -11,8 +11,6 @@ defmodule BraveWeb.KnaveLive do
   def handle_event("generate", _, socket = %{assigns: %{knaves: knaves}}) do
     knave =
       Brave.CharacterGenerator.random()
-      |> IO.inspect()
-
     {:noreply, assign(socket, knaves: [knave] ++ knaves)}
   end
 end

@@ -1,4 +1,121 @@
 defmodule Brave.Equiptment do
+  @armor [
+    %{name: "No Armor", defense: 11, bonus: 1, slots: 0, quality: 7},
+    %{name: "Gambeson", defense: 12, bonus: 2, slots: 1, quality: 3},
+    %{name: "Brigandine", defense: 13, bonus: 3, slots: 1, quality: 4},
+    %{name: "Chain", defense: 14, bonus: 4, slots: 3, quality: 5},
+    %{name: "Helmet", defense: 0, bonus: 1, slots: 1, quality: 1},
+    %{name: "Shield", defense: 0, bonus: 1, slots: 1, quality: 1}
+  ]
+
+  @weapons [
+    %{
+      name: "Dagger, Cudgel, Sickle, Staff, etc.",
+      damage: "1d6",
+      type: "one-handed",
+      slots: 1,
+      quality: 3,
+      value: 5
+    },
+    %{
+      name: "Spear, Sword, Mace, Axe, Flail, etc.",
+      damage: "1d8",
+      type: "one-handed",
+      slots: 2,
+      quality: 3,
+      value: 10
+    },
+    %{
+      name: "Halberd, War Hammer, Long Sword, Battle Axe, etc.",
+      damage: "1d10",
+      type: "two-handed",
+      slots: 3,
+      quality: 3,
+      value: 20
+    },
+    %{name: "Sling", damage: "1d4", type: "one-handed", slots: 1, quality: 3, value: 5},
+    %{name: "Bow", damage: "1d6", type: "two-handed", slots: 2, quality: 3, value: 15},
+    %{name: "Crossbow", damage: "1d8", type: "two-handed", slots: 3, quality: 3, value: 60}
+  ]
+
+  @ammo [
+    %{name: "Arrows/Bolts (20)", damage: nil, type: "ammo", quality: 3, slots: 1, value: 5},
+    %{name: "Quiver (capacity 20)", damage: nil, type: "ammo", quality: 3, slots: 0, value: 10}
+  ]
+
+  @general_gear [
+    %{name: "Pole, 10ft", slots: 1},
+    %{name: "Sack", slots: 1},
+    %{name: "Tent", slots: 1},
+    %{name: "Spikes, 5", slots: 1},
+    %{name: "Torches, 5", slots: 1},
+    %{name: "Saw", slots: 1},
+    %{name: "Bucket", slots: 1},
+    %{name: "Caltrops", slots: 1},
+    %{name: "Chisel", slots: 1},
+    %{name: "Drill", slots: 1},
+    %{name: "Fishing rod", slots: 1},
+    %{name: "Marbles", slots: 1},
+    %{name: "Glue", slots: 1},
+    %{name: "Pick", slots: 1},
+    %{name: "Hourglass", slots: 1},
+    %{name: "Net", slots: 1},
+    %{name: "Tongs", slots: 1},
+    %{name: "Lockpicks", slots: 1},
+    %{name: "Metal file", slots: 1},
+    %{name: "Nails", slots: 1}
+  ]
+
+  @general_gear2 [
+    %{name: "Inscense", slots: 1},
+    %{name: "Sponge", slots: 1},
+    %{name: "Lens", slots: 1},
+    %{name: "Perfume", slots: 1},
+    %{name: "Horn", slots: 1},
+    %{name: "Bottle", slots: 1},
+    %{name: "Soap", slots: 1},
+    %{name: "Spyglass", slots: 1},
+    %{name: "Tar pot", slots: 1},
+    %{name: "Twine", slots: 1},
+    %{name: "Fake jewels", slots: 1},
+    %{name: "Blank book", slots: 1},
+    %{name: "Card deck", slots: 1},
+    %{name: "Dice set", slots: 1},
+    %{name: "Cook pots", slots: 1},
+    %{name: "Face paint", slots: 1},
+    %{name: "Whistle", slots: 1},
+    %{name: "Instrument", slots: 1},
+    %{name: "Quill and Ink", slots: 1},
+    %{name: "Small bell", slots: 1}
+  ]
+
+  @dungeoneering_gear [
+    %{name: "Rope 50ft", slots: 1},
+    %{name: "Pulleys", slots: 1},
+    %{name: "Candles, 5", slots: 1},
+    %{name: "Chain, 10ft", slots: 1},
+    %{name: "Chalk 10", slots: 1},
+    %{name: "Crowbar", slots: 1},
+    %{name: "Tinderbox", slots: 1},
+    %{name: "Grappling hook", slots: 1},
+    %{name: "Hammer", slots: 1},
+    %{name: "Waterskin", slots: 1},
+    %{name: "Lantern", slots: 1},
+    %{name: "Lamp oil", slots: 1},
+    %{name: "Padlock", slots: 1},
+    %{name: "Manacles", slots: 1},
+    %{name: "Mirror", slots: 1},
+    %{name: "Pole, 10ft", slots: 1},
+    %{name: "Sack", slots: 1},
+    %{name: "Tent", slots: 1},
+    %{name: "Spikes, 5", slots: 1},
+    %{name: "Torches, 5", slots: 1}
+  ]
+
+  def weapons, do: @weapons
+  def ammo, do: @ammo
+  def gear, do: @general_gear ++ @general_gear2 ++ @dungeoneering_gear
+
   def random_armor do
     roll = Enum.random(1..20)
 
@@ -31,45 +148,6 @@ defmodule Brave.Equiptment do
     end
   end
 
-  def weapons do
-    [
-      %{
-        name: "Dagger, Cudgel, Sickle, Staff, etc.",
-        damage: "1d6",
-        type: "one-handed",
-        slots: 1,
-        quality: 3,
-        value: 5
-      },
-      %{
-        name: "Spear, Sword, Mace, Axe, Flail, etc.",
-        damage: "1d8",
-        type: "one-handed",
-        slots: 2,
-        quality: 3,
-        value: 10
-      },
-      %{
-        name: "Halberd, War Hammer, Long Sword, Battle Axe, etc.",
-        damage: "1d10",
-        type: "two-handed",
-        slots: 3,
-        quality: 3,
-        value: 20
-      },
-      %{name: "Sling", damage: "1d4", type: "one-handed", slots: 1, quality: 3, value: 5},
-      %{name: "Bow", damage: "1d6", type: "two-handed", slots: 2, quality: 3, value: 15},
-      %{name: "Crossbow", damage: "1d8", type: "two-handed", slots: 3, quality: 3, value: 60}
-    ]
-  end
-
-  def ammo do
-    [
-      %{name: "Arrows/Bolts (20)", damage: nil, type: "ammo", quality: 3, slots: 1, value: 5},
-      %{name: "Quiver (capacity 20)", damage: nil, type: "ammo", quality: 3, slots: 1, value: 10}
-    ]
-  end
-
   def random_weapon do
     weapons()
     |> Enum.shuffle()
@@ -77,86 +155,20 @@ defmodule Brave.Equiptment do
   end
 
   def random_general_gear do
-    roll = Enum.random(1..20)
-
-    %{
-      1 => "Pole, 10ft",
-      2 => "Sack",
-      3 => "Tent",
-      4 => "Spikes, 5",
-      5 => "Torches, 5",
-      6 => "Saw",
-      7 => "Bucket",
-      8 => "Caltrops",
-      9 => "Chisel",
-      10 => "Drill",
-      11 => "Fishing rod",
-      12 => "Marbles",
-      13 => "Glue",
-      14 => "Pick",
-      15 => "Hourglass",
-      16 => "Net",
-      17 => "Tongs",
-      18 => "Lockpicks",
-      19 => "Metal file",
-      20 => "Nails"
-    }
-    |> Map.get(roll)
+    @general_gear
+    |> Enum.shuffle()
+    |> Enum.take(1)
   end
 
   def random_general_gear_two do
-    roll = Enum.random(1..20)
-
-    %{
-      1 => "Inscense",
-      2 => "Sponge",
-      3 => "Lens",
-      4 => "Perfume",
-      5 => "Horn",
-      6 => "Bottle",
-      7 => "Soap",
-      8 => "Spyglass",
-      9 => "Tar pot",
-      10 => "Twine",
-      11 => "Fake jewels",
-      12 => "Blank book",
-      13 => "Card deck",
-      14 => "Dice set",
-      15 => "Cook pots",
-      16 => "Face paint",
-      17 => "Whistle",
-      18 => "Instrument",
-      19 => "Quill and Ink",
-      20 => "Small bell"
-    }
-    |> Map.get(roll)
+    @general_gear2
+    |> Enum.shuffle()
+    |> Enum.take(1)
   end
 
   def random_dungeoneering_gear do
-    roll = Enum.random(1..20)
-
-    %{
-      1 => "Rope 50ft",
-      2 => "Pulleys",
-      3 => "Candles, 5",
-      4 => "Chain, 10ft",
-      5 => "Chalk 10",
-      6 => "Crowbar",
-      7 => "Tinderbox",
-      8 => "Grappling hook",
-      9 => "Hammer",
-      10 => "Waterskin",
-      11 => "Lantern",
-      12 => "Lamp oil",
-      13 => "Padlock",
-      14 => "Manacles",
-      15 => "Mirror",
-      16 => "Pole, 10ft",
-      17 => "Sack",
-      18 => "Tent",
-      19 => "Spikes, 5",
-      20 => "Torches, 5"
-    }
-    |> Map.get(roll)
+    @dungeoneering_gear
+    |> Enum.shuffle()
+    |> Enum.take(1)
   end
 end

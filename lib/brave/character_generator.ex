@@ -17,7 +17,7 @@ defmodule Brave.CharacterGenerator do
 
   def add_inventory(character) do
     gear =
-      ["2 days worth of Rations"]
+      [%{name: "2 days worth of Rations", slots: 1}]
       |> Enum.concat([Equiptment.random_armor()])
       |> Enum.concat([Equiptment.random_helmets_and_shields()])
       |> Enum.concat([Equiptment.random_general_gear()])

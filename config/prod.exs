@@ -30,7 +30,7 @@ config :brave, Brave.Repo,
   url: "${DATABASE_URL}",
   database: "",
   ssl: true,
-  pool_size: 1
+  pool_size: 2
 
 # ## SSL Support
 #
